@@ -10,7 +10,6 @@
 
 # production
 /build
-/src/fetch
 
 # misc
 .DS_Store
