@@ -317,10 +317,11 @@ async function bookAMember(item, activephase, isAdmin) {
 export const cancelSeat = async (req, res) => {
   let churchMemberId = req.body.churchMemberId;
   const churchMember = await db.ChurchMember.findById(churchMemberId);
+  console.log(churchMember);
   const bookingDate = churchMember.lastBooking.date
   const nowDate = new Date();
-  if (bookingDate > nowDate && (bookingDate.getDate() - nowDate.getDate() > 1 ||
-    bookingDate.getDate() - nowDate.getDate() === 1 && nowDate.getHours() < 21)){
+  let dateDifference = Math.ceil((bookingDate-nowDate) / (1000 * 60 * 60 * 24));
+  if (bookingDate > nowDate && (dateDifference > 1 || dateDifference === 1 && nowDate.getHours() < 21)){
     if (churchMember != null) {
       if (churchMember.lastBooking != null && churchMember.lastBooking != undefined) {
         var holymassId = churchMember.lastBooking.holymassId;

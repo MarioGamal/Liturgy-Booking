@@ -319,10 +319,10 @@ export const cancelSeat = async (req, res) => {
   //let id = req.body.id; 
   let churchMemberId = req.body.churchMemberId;
   const churchMember = await db.ChurchMember.findById(churchMemberId);
-  const bookingDate = churchMember.lastBooking.date;
+  const bookingDate = churchMember.lastEveningPrayer.date;
   const nowDate = new Date();
-  if (bookingDate.getDate() - nowDate.getDate() > 1 ||
-    bookingDate.getDate() - nowDate.getDate() === 1 && nowDate.getHours() < 21){
+  let dateDifference = Math.ceil((bookingDate-nowDate) / (1000 * 60 * 60 * 24));
+  if (bookingDate > nowDate && (dateDifference > 1 || dateDifference === 1 && nowDate.getHours() < 21)){
       if (churchMember != null) {
         if (churchMember.lastEveningPrayer != null && churchMember.lastEveningPrayer != undefined) {
           var id = churchMember.lastEveningPrayer.id;
