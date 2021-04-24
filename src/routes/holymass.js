@@ -14,6 +14,6 @@ router.put('/', update);
 router.post('/bookseat', bookSeat);
 router.post('/cancelSeat', cancelSeat);
 // router.post('/export', exportHolymass);
-router.post('/:id/export', exportHolymass);
+router.get('/:id/export', exportHolymass);
 
 export default router;

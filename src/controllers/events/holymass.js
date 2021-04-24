@@ -358,9 +358,12 @@ export const cancelSeat = async (req, res) => {
 
 export const exportHolymass = (req, res) => {
   const id = req.params.id;
-
   Holymass.findById(id)
     .then(data => {
+      var reservations = data.reservedSeats;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename=holymass-' + data.date + ".csv");
+        res.csv(reservations, true);
       if (!data)
         res.status(404).send({
           message: i18n.__("objectNotExists")
