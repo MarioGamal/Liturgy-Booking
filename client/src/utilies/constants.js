@@ -29,11 +29,11 @@ export const inputText = {
     floorPlaceholder: 'الدور'
 };
 export const loginFailed = 'من فضلك تأكد من اسم المستخدم و كلمه السر'
-export const homeTitle = 'حجز صلوات اسبوع الالام';
+export const homeTitle = 'حجز القداسات';
 export const holymasses = 'مناسبات';
 export const holymass = 'مناسبات';
-export const eveningPrayer = 'بصخة';
-export const eveningPrayers = 'بصخات';
+export const eveningPrayer = 'عشية';
+export const eveningPrayers = 'عشيات';
 export const availableCeremonies = ceremony =>
     ceremony === 'holymass' ? `${holymasses} المتاحه حاليا` : `${eveningPrayers} المتاحه حاليا`
 
