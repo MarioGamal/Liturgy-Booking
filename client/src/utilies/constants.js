@@ -30,8 +30,8 @@ export const inputText = {
 };
 export const loginFailed = 'من فضلك تأكد من اسم المستخدم و كلمه السر'
 export const homeTitle = 'حجز القداسات';
-export const holymasses = 'مناسبات';
-export const holymass = 'مناسبات';
+export const holymasses = 'قداسات';
+export const holymass = 'قداس';
 export const eveningPrayer = 'عشية';
 export const eveningPrayers = 'عشيات';
 export const availableCeremonies = ceremony =>
